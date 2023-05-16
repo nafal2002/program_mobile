@@ -11,9 +11,9 @@ A new Flutter project.
 UTS Semester 4 Progam Mobile
 
  
-Nama : Nafal mumtaz fuadi
-Nim : 312110457
-Kelas : TI.21.A.2
+## Nama : Nafal mumtaz fuadi
+## Nim : 312110457
+## Kelas : TI.21.A.2
 
 
 
