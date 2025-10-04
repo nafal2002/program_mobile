@@ -1,77 +1,324 @@
-# program_mobile
 
-# login
-# register
+```markdown
+# Aplikasi Login & Register dengan C++ (Qt Framework)
 
-A new Flutter project.
+Proyek ini merupakan implementasi form autentikasi (Login dan Register) yang dirancang dengan antarmuka pengguna (UI) modern menggunakan bahasa C++ dan Qt Framework. Aplikasi ini dikembangkan sebagai bagian dari tugas Ujian Tengah Semester (UTS) mata kuliah Pemrograman Mobile.
 
+> **Catatan:** Penggunaan C++ untuk pengembangan aplikasi mobile dengan UI native tidak umum. Proyek ini memanfaatkan Qt Framework, salah satu solusi utama untuk membangun aplikasi GUI cross-platform dengan C++.
 
-# flutter_login_uts
+## 🚀 Fitur
 
-UTS Semester 4 Progam Mobile
+-   Halaman **Login** dengan form input username dan password.
+-   Halaman **Register** untuk pembuatan akun pengguna baru.
+-   Navigasi yang halus antar halaman menggunakan `StackView`.
+-   Desain UI yang responsif dan menarik dengan QML.
+-   Pemisahan yang jelas antara logika bisnis (C++) dan antarmuka (QML).
 
- 
-## Nama : Nafal mumtaz fuadi
-## Nim : 312110457
-## Kelas : TI.21.A.2
+## 👤 Informasi Pembuat
 
+| Informasi | Detail |
+|---|---|
+| **Nama** | Nafal Mumtaz Fuadi |
+| **NIM** | 312110457 |
+| **Kelas** | TI.21.A.2 |
+| **Universitas** | Universitas Pelita Bangsa |
 
+## 📋 Prasyarat
 
+Sebelum menjalankan proyek ini, pastikan lingkungan pengembangan Anda telah memenuhi syarat berikut:
 
+1.  **Qt Framework**: Versi 6.x atau lebih baru yang telah terinstal. Unduh dari [situs resmi Qt](https://www.qt.io/download).
+2.  **Qt Creator**: IDE resmi dari Qt untuk pengembangan aplikasi (biasanya sudah terinstal bersama Qt).
+3.  **Kompiler C++**: Seperti MinGW (Windows), Clang (macOS), atau GCC (Linux).
+4.  **Qt for Mobile**: Pastikan Anda telah menginstal komponen Qt untuk Android dan/atau iOS.
 
+## 🛠️ Panduan Instalasi & Menjalankan
 
+Ikuti langkah-langkah berikut untuk menjalankan proyek ini di lokal mesin Anda:
 
+1.  **Kloning Repository**
+    ```bash
+    git clone https://github.com/username-anda/login_register_cpp.git
+    cd login_register_cpp
+    ```
 
+2.  **Buka Proyek di Qt Creator**
+    - Buka Qt Creator.
+    - Pilih `File > Open File or Project...`.
+    - Arahkan ke folder proyek dan pilih file `CMakeLists.txt` atau file `.pro`.
 
-Universitas Pelita Bangsa
-Membuat Form Login Dan Register Keren Dengan Flutter
+3.  **Konfigurasi & Build**
+    - Pilih kit kompilasi yang sesuai (misalnya, Desktop, atau Android jika ingin menguji di emulator).
+    - Klik tombol "Configure Project" jika muncul.
+    - Build proyek dengan menekan `Ctrl+B` atau klik tombol Build.
 
- 
-	
+4.  **Jalankan Aplikasi**
+    - Jalankan aplikasi dengan menekan `Ctrl+R` atau klik tombol Run.
 
-•	 Form login dan register merupakan komponen yang penting dalam pembuatan suatu aplikasi yang membutuhkan terusan pengguna. Pada tutorial ini saya akan mencoba membuat halaman form login dan register keren dan menarik menggunakan flutter.
+---
 
-1.	Buat project flutter
-Pertama laptop atau komputer kalian harus sudah terinstal flutter, dan gunakan IDE Android Studio atau Visual Studio Code. Buat project flutter dan beri nama misalkan login, tunggu hingga proses sinkronisasi selesai.
-2. Menyiapkan assets
-Sebelum menciptakan layout. kalian harus mempunyai asset gambar dahulu. Kemudian buat folder dengan nama assets, buat folder dalam assets dengan nama images, dan pindahkan assets gambar yang sudah kalian miliki ke folder images.
-Selanjutnya pendaftaran gambar yang sudah ditambahkan dengan membuaka file pubspec.yaml, cari kata assets, hapus komentar dan tambahkan instruksi berikut:
-assets:- assets/images/
+## 📖 Panduan Pembuatan (Dokumentasi Kode)
 
-3. Menyiapkan assets warna
-Untuk memudahkan penggunaan warna, buat file gres pada folder lib dan beri nama constants.dart. File ini nantinya dipakai untuk color palette yang akan dipanggil pada halaman login dan registrasi. Tulis kodenya seperti berikut:
+Bagian ini menjelaskan langkah demi langkah bagaimana aplikasi ini dibangun dari awal menggunakan C++ dan Qt.
 
+### 1. Inisialisasi Proyek Qt
 
-```import 'package:flutter/material.dart';class ColorPalette{static const primaryColor       = Color(0xff5364e8);static const primaryDarkColor   = Color(0xff607Cbf);static const underlineTextField = Color(0xff8b97ff);static const hintColor          = Color(0xffccd1ff);}```
+Buat proyek Qt baru di Qt Creator. Pilih template **Application (Qt Quick)**. Template ini menggunakan QML untuk UI dan C++ untuk logika, yang cocok untuk proyek ini.
 
-4. Membuat Halaman Login
-Selanjutnya buka folder lib, buat folder dengan nama screens dan buat file didalamnya denga nama login_view.dart. Folder screens dipakai untuk halaman supaya file didalam folder lib lebih rapi. Ketik instruksi code berikut didalam file login_view.dart:
+### 2. Konfigurasi Sumber Daya (Resources)
 
-```import 'package:flutter/material.dart';import 'package:login/constants.dart';import 'package:login/screens/register_view.dart';class LoginPage extends StatelessWidget {@overrideWidget build(BuildContext context) {return Scaffold(body: Container(color: ColorPalette.primaryColor,padding: EdgeInsets.all(20.0),child: ListView(children: <Widget>[Center(child: Column(children: <Widget>[_iconLogin(),_titleDescription(),_textField(),_buildButton(context),],),),],),),);}}Widget _iconLogin() {return Image.asset("assets/images/logo.png",height: 150.0,width: 150.0,);}Widget _titleDescription() {return Column(children: <Widget>[Padding(padding: EdgeInsets.only(top: 16.0),),Text("Login Into App",style: TextStyle(color: Colors.white,fontSize: 16.0,),),Padding(padding: EdgeInsets.only(top: 12.0),),Text("Lorem Ipsum sim amet , lorem ipsum amet",style: TextStyle(fontSize: 12.0,color: Colors.white,),textAlign: TextAlign.center,),],);}Widget _textField() {return Column(children: <Widget>[Padding(padding: EdgeInsets.only(top: 12.0),),TextFormField(decoration: const InputDecoration(border: UnderlineInputBorder(),enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: ColorPalette.underlineTextField,width: 1.5,),),focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.white,width: 3.0,),),hintText: "Username",hintStyle: TextStyle(color: ColorPalette.hintColor),),style: TextStyle(color: Colors.white),autofocus: false,),Padding(padding: EdgeInsets.only(top: 12.0),),TextFormField(decoration: const InputDecoration(border: UnderlineInputBorder(),enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: ColorPalette.underlineTextField,width: 1.5,),),focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.white,width: 3.0,),),hintText: "Password",hintStyle: TextStyle(color: ColorPalette.hintColor),),style: TextStyle(color: Colors.white),obscureText: true,autofocus: false,),],);}Widget _buildButton(BuildContext) {return Column(children: <Widget>[Padding(padding: EdgeInsets.only(top: 16.0),),InkWell(child: Container(padding: EdgeInsets.symmetric(vertical: 8.0),width: double.infinity,child: Text('Login',style: TextStyle(color: ColorPalette.primaryColor),textAlign: TextAlign.center,),decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(30.0),),),),Padding(padding: EdgeInsets.only(top: 16.0),),Text('or',style: TextStyle(color: Colors.white,fontSize: 12.0,),),FlatButton(child: Text('Register',style: TextStyle(color: Colors.white),),onPressed: () {Navigator.pushNamed(BuildContext, RegisterPage.routeName);},),],);}```
+Qt menggunakan sistem file sumber daya (`.qrc`) untuk mengemas aset seperti gambar.
 
-Catatan:
-pada import dan pemanggilan class halaman register masih error sebab kita belum membuatnya, biarkan terlebih dahulu dan ikuti langkagh berikutnya
-5. Membuat Halaman Register
-Buat file pada folder lib > screens dengan nama register_view.dart, dan tambahkan kodenya seperti berikut:
+1.  Klik kanan pada proyek di panel "Projects" dan pilih `Add New... > Qt > Qt Resource File`.
+2.  Beri nama `resources.qrc`.
+3.  Klik kanan pada file `.qrc` dan pilih `Add Prefix`, lalu `Add Files` untuk menambahkan gambar (misalnya `logo.png`) ke dalamnya.
 
-``` import 'package:flutter/material.dart';import 'package:login/constants.dart';class RegisterPage extends StatefulWidget {static const routeName = "/RegisterPage";@override_RegisterPageState createState() => _RegisterPageState();}class _RegisterPageState extends State<RegisterPage> {@overrideWidget build(BuildContext context) {return Scaffold(body: Container(color: ColorPalette.primaryColor,padding: EdgeInsets.all(20.0),child: ListView(children: <Widget>[_iconRegistrasi(),_titleDescription(),_textField(),_buildButton(context),],),),);}}Widget _iconRegistrasi() {return Image.asset("assets/images/logo.png",width: 150.0,height: 150.0,);}Widget _titleDescription() {return Column(children: <Widget>[Padding(padding: EdgeInsets.only(top: 16.0),),Text("Registrasi",style: TextStyle(color: Colors.white,fontSize: 16.0,),),Text("Lorem Impsum dolar sit amrt lorem ipsum ",style: TextStyle(color: Colors.white,fontSize: 12.0,),textAlign: TextAlign.center,),],);}Widget _textField() {return Column(children: <Widget>[Padding(padding: EdgeInsets.only(top: 12.0),),TextFormField(decoration: const InputDecoration(border: UnderlineInputBorder(),enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: ColorPalette.underlineTextField,width: 1.5,),),focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.white,width: 3.0,),),hintText: "Username",hintStyle: TextStyle(color: Colors.white),),style: TextStyle(color: Colors.white),autofocus: false,),Padding(padding: EdgeInsets.only(top: 12.0),),TextFormField(decoration: const InputDecoration(border: UnderlineInputBorder(),enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: ColorPalette.underlineTextField,width: 3.0,),),focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.white,width: 3.0,),),hintText: "Passwrod",hintStyle: TextStyle(color: ColorPalette.hintColor),),style: TextStyle(color: Colors.white),obscureText: true,autofocus: false,),],);}Widget _buildButton(BuildContext context) {return Column(children: <Widget>[Padding(padding: EdgeInsets.only(top: 16.0),),InkWell(child: Container(padding: EdgeInsets.symmetric(vertical: 8.0),width: double.infinity,child: Text('Registrasi',style: TextStyle(color: ColorPalette.primaryColor),textAlign: TextAlign.center,),decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(30.0),),),),Padding(padding: EdgeInsets.only(top: 16.0),),Text('or',style: TextStyle(color: Colors.white,fontSize: 12.0,),),FlatButton(child: Text('Login',style: TextStyle(color: Colors.white),),onPressed: () {Navigator.pushNamed(context, "/");},)],);}```
-  
-6. Membuat Routing
-Routing dipakai untuk berpindah halaman, kita akan menghubungkan halaman login dan register. Buka file main.dart pada folder lib, dan ubah kodenya menjadi kode berikut ini:
+### 3. Pembuatan Konstanta Warna
 
-```import 'package:flutter/material.dart';import 'package:login/screens/login_view.dart';import 'package:login/screens/register_view.dart';void main(){runApp(MaterialApp(debugShowCheckedModeBanner: false,title: "Login Register Page",initialRoute: "/",routes: {"/" : (context) => LoginPage(),RegisterPage.routeName : (context) => RegisterPage(),},));} ```
+Untuk menjaga konsistensi warna, buat file header C++ untuk mendefinisikan palet warna.
 
+**Buat file:** `constants.h`
+```cpp
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
 
-Catatan:
-initialRoute dipakai untuk raoute yang pertama kali ditampilkan pada aplikasi, intruksi diatas halaman yang pertama ditampilkan adalah login.
-7. Finishing
-Sebelum projectnya dijalankan, buka file widget_test.dart pada folder test. Tambahkan komentar // untuk impirt main dan MyApp. seperti dibawah ini:
+#include <QColor>
 
- 
+namespace ColorPalette {
+    static const QColor primaryColor = QColor(82, 100, 232); // #5364e8
+    static const QColor primaryDarkColor = QColor(96, 124, 191); // #607Cbf
+    static const QColor underlineTextField = QColor(139, 151, 255); // #8b97ff
+    static const QColor hintColor = QColor(204, 209, 255); // #ccd1ff
+}
 
+#endif // CONSTANTS_H
+```
 
-Dan coba debug terlebih dahulu jika terjadi kesalahan cek kembali code teman-teman.
-Untuk tutorial menambahkan firebase ke aplikasi flutter nanti saya tulis di story saya selanjutnya.
-Semangat!!
+### 4. Pembuatan Halaman Login (UI dengan QML)
 
-¬¬¬¬
+Antarmuka pengguna dibuat dengan QML, sebuah bahasa deklaratif.
+
+**Buat file:** `qml/LoginView.qml`
+```qml
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
+
+Page {
+    id: loginPage
+
+    background: Rectangle {
+        color: "#5364e8" // ColorPalette.primaryColor
+    }
+
+    ColumnLayout {
+        anchors.fill: parent
+        anchors.margins: 20
+        spacing: 10
+
+        Image {
+            id: logo
+            source: "qrc:/images/logo.png"
+            Layout.alignment: Qt.AlignHCenter
+            Layout.preferredHeight: 150
+            Layout.preferredWidth: 150
+        }
+
+        Text {
+            text: "Login Into App"
+            color: "white"
+            font.pixelSize: 20
+            Layout.alignment: Qt.AlignHCenter
+        }
+
+        TextField {
+            id: usernameField
+            placeholderText: "Username"
+            placeholderTextColor: "#ccd1ff"
+            color: "white"
+            background: Rectangle {
+                color: "transparent"
+                border.color: "#8b97ff"
+                border.width: 1
+                radius: 5
+            }
+            Layout.fillWidth: true
+        }
+
+        TextField {
+            id: passwordField
+            placeholderText: "Password"
+            placeholderTextColor: "#ccd1ff"
+            color: "white"
+            echoMode: TextInput.Password
+            background: Rectangle {
+                color: "transparent"
+                border.color: "#8b97ff"
+                border.width: 1
+                radius: 5
+            }
+            Layout.fillWidth: true
+        }
+
+        Button {
+            text: "Login"
+            Layout.fillWidth: true
+            background: Rectangle {
+                color: "white"
+                radius: 20
+            }
+            contentItem: Text {
+                text: parent.text
+                color: "#5364e8"
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+            onClicked: {
+                // Logika login akan dipanggil dari sini
+                console.log("Login clicked")
+            }
+        }
+
+        Text {
+            text: "or"
+            color: "white"
+            Layout.alignment: Qt.AlignHCenter
+        }
+
+        Button {
+            text: "Register"
+            Layout.alignment: Qt.AlignHCenter
+            background: Rectangle { color: "transparent" }
+            contentItem: Text {
+                text: parent.text
+                color: "white"
+                underline: true
+            }
+            onClicked: stackView.push("qrc:/qml/RegisterView.qml")
+        }
+    }
+}
+```
+
+### 5. Pembuatan Halaman Register (UI dengan QML)
+
+Strukturnya mirip dengan halaman login, tetapi dengan form yang sesuai.
+
+**Buat file:** `qml/RegisterView.qml`
+```qml
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
+
+Page {
+    id: registerPage
+
+    background: Rectangle {
+        color: "#5364e8"
+    }
+
+    ColumnLayout {
+        anchors.fill: parent
+        anchors.margins: 20
+        spacing: 10
+
+        // ... (logo dan judul serupa dengan LoginView) ...
+
+        TextField {
+            id: newUsernameField
+            placeholderText: "Username"
+            // ... (properti serupa) ...
+            Layout.fillWidth: true
+        }
+
+        TextField {
+            id: newPasswordField
+            placeholderText: "Password"
+            // ... (properti serupa) ...
+            Layout.fillWidth: true
+        }
+
+        Button {
+            text: "Register"
+            Layout.fillWidth: true
+            // ... (properti serupa) ...
+            onClicked: {
+                // Logika register akan dipanggil dari sini
+                console.log("Register clicked")
+            }
+        }
+
+        Button {
+            text: "Back to Login"
+            Layout.alignment: Qt.AlignHCenter
+            // ... (properti serupa) ...
+            onClicked: stackView.pop()
+        }
+    }
+}
+```
+
+### 6. Konfigurasi Routing (Navigasi)
+
+Navigasi dikelola dalam file QML utama (`main.qml`) menggunakan `StackView`.
+
+**Modifikasi file:** `qml/main.qml`
+```qml
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+
+ApplicationWindow {
+    visible: true
+    width: 360
+    height: 640
+    title: qsTr("Login Register C++")
+
+    StackView {
+        id: stackView
+        anchors.fill: parent
+        initialItem: "qrc:/qml/LoginView.qml" // Halaman awal
+    }
+}
+```
+
+### 7. Finishing & Logika Backend
+
+Logika bisnis (seperti validasi input atau komunikasi dengan server) ditulis dalam C++. Anda dapat mengekspos fungsi C++ ke QML agar dapat dipanggil dari UI.
+
+**Contoh `backend.h`:**
+```cpp
+#ifndef BACKEND_H
+#define BACKEND_H
+
+#include <QObject>
+#include <QString>
+
+class Backend : public QObject
+{
+    Q_OBJECT
+public:
+    explicit Backend(QObject *parent = nullptr);
+
+public slots:
+    Q_INVOKABLE bool login(const QString &username, const QString &password);
+    Q_INVOKABLE bool register(const QString &username, const QString &password);
+
+signals:
+    void loginSuccess();
+    void loginFailed();
+};
+
+#endif // BACKEND_H
+```
+
+File `backend.cpp` akan mengimplementasikan logika dari fungsi-fungsi tersebut. Objek `Backend` kemudian didaftarkan di `main.cpp` agar dapat diakses dari QML.
+
+---
+
+## 📝 Catatan Tambahan
+
+-   Proyek ini mendemonstrasikan arsitektur dasar C++/QML. Untuk aplikasi produksi, logika autentikasi harus terhubung dengan backend yang aman.
+-   Validasi input di sisi C++ sangat penting untuk mencegah error dan celah keamanan.
+
+Semoga panduan ini bermanfaat!
+```
